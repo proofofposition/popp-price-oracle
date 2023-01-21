@@ -40,7 +40,7 @@ describe("🚩 Price Oracle user flows", function () {
                 );
             });
 
-            it("Should fail if the user has not sent enough ETH", async function () {
+            it("Should fail if a non-owner tries to set the price", async function () {
                 await expect(
                     this.oracle.connect(alice).setPrice(1)
                 ).to.be.revertedWith("Ownable: caller is not the owner");
