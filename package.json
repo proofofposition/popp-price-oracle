@@ -1,21 +1,21 @@
 {
-  "name": "popp-protocol",
+  "name": "popp-price-oracle",
   "version": "1.0.0",
-  "description": "The Smart Contracts for POPP",
+  "description": "An oracle contract to determine the USD price of $POPP",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RingierIMU/popp-protocol.git"
+    "url": "git+https://github.com/proofofposition/popp-protocol.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RingierIMU/popp-protocol/issues"
+    "url": "https://github.com/proofofposition/popp-protocol/issues"
   },
-  "homepage": "https://github.com/RingierIMU/popp-protocol#readme",
+  "homepage": "https://github.com/proofofposition/popp-protocol#readme",
   "devDependencies": {
     "@gnosis.pm/mock-contract": "^4.0.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
-    "dotenv": "^16.0.2"
+    "dotenv": "^16.0.2",
+    "popp-interfaces": "^1.0.9"
   }
 }

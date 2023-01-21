@@ -1,6 +1,5 @@
-# hardhat-template
-A template repo for hardhat projects. Includes configurations, dependencies and tests.
-After cloning this repo: 
+# $POPP USD Price Oracle
+An oracle contract to determine the USD price of $POPP to calculate the value of the POPP token. For protocol fees.
 1. run
 ```
 npm install
