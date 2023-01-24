@@ -8,7 +8,9 @@ contract PriceOracle is
 Ownable,
 IPriceOracle
 {
+    /** @dev The price of 1 POPP token in USD cents. */
     uint16 private price;
+
     /**
      * @dev Set the price of the token in US Cents (fixed point)
      * @param _price The price of the token
@@ -21,7 +23,16 @@ IPriceOracle
         price = _price;
     }
 
-    function getPrice() public view returns (uint16) {
+    function getPrice() external view returns (uint16) {
         return price;
+    }
+
+    /**
+    * @dev Get the POPP value (fixed point number) from the USD cents value
+    * eg. 100 cents = 1000000000000 POPP
+    * @param _usdCents The USD cents value
+    */
+    function centsToToken(uint256 _usdCents) external view returns (uint256) {
+        return (_usdCents * (10 ** 18) /price);
     }
 }

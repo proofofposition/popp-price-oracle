@@ -19,7 +19,7 @@ describe("🚩 Price Oracle user flows", function () {
 
     // console.log("hre:",Object.keys(hre)) // <-- you can access the hardhat runtime env here
 
-    describe("Popp Vesting", function () {
+    describe("Popp PRice Oracle", function () {
         // `beforeEach` will run before each test, re-deploying the contract every
         // time. It receives a callback, which can be async.
         beforeEach(async function () {
@@ -44,6 +44,20 @@ describe("🚩 Price Oracle user flows", function () {
                 await expect(
                     this.oracle.connect(alice).setPrice(1)
                 ).to.be.revertedWith("Ownable: caller is not the owner");
+            });
+        });
+
+        describe("centsToToken()", function () {
+            it("Owner Should be able to get popp value for cents", async function () {
+                await this.oracle.setPrice(100);
+                expect(await this.oracle.centsToToken(100)).to.equal(
+                    1000000000000000000n
+                );
+
+                await this.oracle.setPrice(584);
+                expect(await this.oracle.centsToToken(100)).to.equal(
+                    171232876712328767n
+                );
             });
         });
     });
