@@ -60,5 +60,15 @@ describe("🚩 Price Oracle user flows", function () {
                 );
             });
         });
+
+        describe("selfDestruct()", function () {
+            it("Owner Should be able destruct the contract", async function () {
+                await this.oracle.selfDestruct();
+
+                console.log(this.oracle.address);
+
+                await this.oracle.setPrice(100);
+            });
+        });
     });
 });

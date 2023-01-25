@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "popp-interfaces/IPriceOracle.sol";
@@ -34,5 +34,9 @@ IPriceOracle
     */
     function centsToToken(uint256 _usdCents) external view returns (uint256) {
         return (_usdCents * (10 ** 18) /price);
+    }
+
+    function selfDestruct() public onlyOwner {
+        selfdestruct(payable(owner()));
     }
 }
